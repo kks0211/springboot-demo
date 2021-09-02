@@ -1,0 +1,9 @@
+
+create table tbl_board (
+bno serial  primary key,
+title   varchar(100),
+content varchar(500),
+writer  varchar(100),
+regdate date default now(),
+updatedate  date    default now()
+);
