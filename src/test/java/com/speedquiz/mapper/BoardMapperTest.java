@@ -18,7 +18,7 @@ class BoardMapperTest {
     @Test
     void insert() {
         BoardVO vo = BoardVO.builder().title("test").content("test").writer("test").build();
-        boardMapper.insert(vo);
+        boardMapper.save(vo);
 
     }
 }
