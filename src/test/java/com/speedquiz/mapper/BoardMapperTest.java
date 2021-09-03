@@ -21,4 +21,27 @@ class BoardMapperTest {
         boardMapper.save(vo);
 
     }
+
+    @Test
+    void read() {
+        System.out.println(boardMapper.read(2L));
+    }
+
+    @Test
+    void update() {
+        BoardVO vo = BoardVO.builder().title("수정제목").content("수정내용").build();
+        vo.setBno(2L);
+        boardMapper.update(vo);
+    }
+
+    @Test
+    void delete () {
+        boardMapper.delete(1L);
+    }
+
+    @Test
+    void listPage(){
+        boardMapper.listPage();
+    }
+
 }

@@ -1,6 +1,6 @@
 
 create table tbl_board (
-bno serial  primary key,
+bno bigserial  primary key,
 title   varchar(100),
 content varchar(500),
 writer  varchar(100),
