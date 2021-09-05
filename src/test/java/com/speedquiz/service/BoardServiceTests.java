@@ -1,6 +1,7 @@
 package com.speedquiz.service;
 
 import com.speedquiz.domain.BoardVO;
+import com.speedquiz.domain.Criteria;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -48,7 +49,8 @@ public class BoardServiceTests {
 
     @Test
     public void listPage() {
-        List<BoardVO> list = boardService.listPage();
+        Criteria cri = new Criteria();
+        List<BoardVO> list = boardService.listPage(cri);
         System.out.println("=====> " + list);
         //log.info("list => {}", list);
     }

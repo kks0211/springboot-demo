@@ -1,6 +1,7 @@
 package com.speedquiz.service;
 
 import com.speedquiz.domain.BoardVO;
+import com.speedquiz.domain.Criteria;
 import com.speedquiz.mapper.BoardMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -34,7 +35,7 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public List<BoardVO> listPage() {
-        return boardMapper.listPage();
+    public List<BoardVO> listPage(Criteria cri) {
+        return boardMapper.listPage(cri);
     }
 }

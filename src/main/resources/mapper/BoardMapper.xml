@@ -27,12 +27,27 @@
         where bno = #{bno}
     </delete>
 
-    <select id="listPage" resultType="BoardVO">
+    <select id="listPage1" resultType="BoardVO">
         select *
         from tbl_board
         where bno > 0
+        <![CDATA[
+          and rownum <= (#{pageNum} * #{amount})
+          and rn > (#{pageNum} -1) * #{amount}
+        ]]>
+    </select>
+
+    <select id="listPage" resultType="BoardVO">
+        select bno, title, content, writer, regdate, updatedate, replycnt, categoryid
+        from (
+        select
+        rownum rn, bno, title, content, writer, regdate, updatedate, replycnt, categoryid
+        from tbl_board
+        <![CDATA[
+        where rownum <= #{pageNum} * #{amount}
+             )
+        where rn > (#{pageNum} -1) * #{amount}
+        ]]>
     </select>
 
 </mapper>
-
-

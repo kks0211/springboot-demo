@@ -1,6 +1,7 @@
 package com.speedquiz.mapper;
 
 import com.speedquiz.domain.BoardVO;
+import com.speedquiz.domain.Criteria;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,11 @@ class BoardMapperTest {
 
     @Test
     void listPage(){
-        boardMapper.listPage();
+        Criteria cri = new Criteria();
+        cri.setPageNum(2);
+        cri.setAmount(10);
+        System.out.println(boardMapper.listPage(cri));
+
     }
 
 }

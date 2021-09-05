@@ -1,6 +1,7 @@
 package com.speedquiz.controller;
 
 import com.speedquiz.domain.BoardVO;
+import com.speedquiz.domain.Criteria;
 import com.speedquiz.service.BoardService;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -19,8 +20,9 @@ public class BoardController {
     private BoardService boardService;
 
     @GetMapping("/list")
-    public String listGet(Model model) {
-        model.addAttribute("list", boardService.listPage());
+    public String listGet(Model model, Criteria cri) {
+
+        model.addAttribute("list", boardService.listPage(cri));
         return "/board/list";
     }
 
