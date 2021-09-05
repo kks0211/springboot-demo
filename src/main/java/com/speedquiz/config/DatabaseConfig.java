@@ -1,5 +1,7 @@
 package com.speedquiz.config;
 
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -9,18 +11,16 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
 @Configuration
+@RequiredArgsConstructor
 @MapperScan(basePackages = "com.speedquiz.mapper")
 @ComponentScan(basePackages = "com.speedquiz.service")
 public class DatabaseConfig {
 
-    @Autowired
-    private ApplicationContext applicationContext;
+    private final ApplicationContext applicationContext;
 
     @Bean
     public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {

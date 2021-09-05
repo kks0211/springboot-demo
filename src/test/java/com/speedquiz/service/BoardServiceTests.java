@@ -49,6 +49,7 @@ public class BoardServiceTests {
     @Test
     public void listPage() {
         List<BoardVO> list = boardService.listPage();
+        System.out.println("=====> " + list);
         //log.info("list => {}", list);
     }
 }

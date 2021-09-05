@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/layout/basic :: setContent(~{this::content})}">
+    <th:block th:fragment="content">
+        <body>
+        <div th:class="container">
+            <h2>게시글 등록</h2>
+            <!-- 여기 -->
+            <form id="frm" name="frm" method="post" action="/board/regist">
+                <table th:class="table">
+                    <tr>
+                        <td>제목</td>
+                        <td><input type="text" id="title" name="title"/></td>
+                    </tr>
+                    <tr>
+                        <td>내용</td>
+                        <td colspan="2">
+                            <textarea id="content" name="content"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>작성자</td>
+                        <td><input type="text" id="writer" name="writer"/></td>
+                    </tr>
+                </table>
+            </form>
+            <a href="#this" id="save" class="btn">저장</a>
+        </div>
+        <script>
+
+            $('#save').click(function () {
+                var board = {
+                    title  : $("#title").val(),
+                    content: $("#content").val(),
+                    writer : $("#writer").val()
+                };
+
+                boardService().save(board);
+            })
+
+        </script>
+        </body>
+    </th:block>
+</th:block>
+</html>
